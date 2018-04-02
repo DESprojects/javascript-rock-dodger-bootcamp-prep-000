@@ -17,8 +17,10 @@ function checkCollision(rock) {
   console.log(top)
   if (top > 360) {
 
+    //Get dodger positions
     const dodgerLeftEdge = positionToInteger(DODGER.style.left)
     const dodgerRightEdge = dodgerLeftEdge + 40;
+    //Get rock positions
     const rockLeftEdge = positionToInteger(rock.style.left)
     const rockRightEdge = rockLeftEdge + 20;
 
@@ -82,12 +84,13 @@ function endGame() {
 }
 
 function moveDodger(e) {
-
+  //On LEFT_ARROW, animate moveDodgerLeft function
    if(e.which === LEFT_ARROW){
      window.requestAnimationFrame(moveDodgerLeft);
      e.preventDefault();
      e.stopPropagation();
-   } else if (e.which === RIGHT_ARROW) {
+   }   //On RIGHT_ARROW, animate moveDodgerRight function
+   else if (e.which === RIGHT_ARROW) {
      window.requestAnimationFrame(moveDodgerRight);
      e.preventDefault();
      e.stopPropagation();
@@ -98,6 +101,7 @@ function moveDodgerLeft() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
 
+   //If dodger's not at the edge, move the dodger left
    if(left > 0){
      DODGER.style.left = `${left - 8}px`
    }
@@ -107,6 +111,7 @@ function moveDodgerRight() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
 
+   //If dodger's not at the edge, move the dodger right
    if(left < 360){
    DODGER.style.left = `${left + 8}px`
    }
