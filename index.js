@@ -69,7 +69,8 @@ function createRock(x) {
   function moveRock() {
     if(checkCollision(rock)){
        endGame();
-     } elseif(top < 400) {
+     } 
+     else if(top < 400) {
          function down(){
            top += 2;
            rock.style.top = top + 'px';
@@ -77,11 +78,11 @@ function createRock(x) {
            checkCollision(rock)
           }
           down();
-        }
-      } elseif(top === 400){
+        } 
+      else if(top === 400){
         rock.remove();
       }
-  }
+    }
 
   // We should kick of the animation of the rock around here
   window.requestAnimationFrame(moveRock);
