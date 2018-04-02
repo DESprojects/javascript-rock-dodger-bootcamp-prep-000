@@ -87,7 +87,7 @@ function moveDodger(e) {
      e.preventDefault();
      e.stopPropagation();
    } else if (e.which === RIGHT_ARROW) {
-     moveDodgerRight();
+     window.requestAnimationFrame(moveDodgerRight);
      e.preventDefault();
      e.stopPropagation();
    }
@@ -96,20 +96,19 @@ function moveDodger(e) {
 function moveDodgerLeft() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
-
-     if(left > 0){
+   
+   if(left > 0){
      DODGER.style.left = `${left - 8}px`
-     }
+   }
 }
 
 function moveDodgerRight() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
-   window.requestAnimationFrame(function(){
+   
    if(left < 360){
    DODGER.style.left = `${left + 8}px`
    }
- });
 }
 
 function positionToInteger(p) {
