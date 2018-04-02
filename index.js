@@ -25,12 +25,10 @@ function checkCollision(rock) {
     //If rock position is the same as dodger, return true, else return false
     if ((rockLeftEdge <= dodgerLeftEdge && rockRightEdge >= dodgerLeftEdge) ||
         (rockLeftEdge >= dodgerLeftEdge && rockRightEdge <= dodgerRightEdge) ||
-        (rockLeftEdge <= dodgerRightEdge && rockRightEdge >= dodgerRightEdge))
-        {
-
+        (rockLeftEdge <= dodgerRightEdge && rockRightEdge >= dodgerRightEdge)){
       return true;
     } else {
-      return false;
+        return false;
     }
   }
 }
@@ -51,7 +49,7 @@ function createRock(x) {
     //Check for collision
     if(checkCollision(rock)){
        endGame();
-     }//If no collision, change the position;
+     }//If no collision, change the position
      else if(top < 400) {
            top += 2;
            rock.style.top = top + 'px';
@@ -63,11 +61,13 @@ function createRock(x) {
     }
   window.requestAnimationFrame(moveRock);
 
+  //Add rock to array
   ROCKS.push(rock)
 
   return rock
 }
 
+//Reset game on loss
 function endGame() {
   clearInterval(gameInterval);
   START.style.display = "block";
@@ -76,9 +76,8 @@ function endGame() {
   ROCKS.forEach(function(rock){
     rock.remove();
   })
-  console.log(ROCKS);
+  //Empty the rock array;
   ROCKS.splice(0);
-  console.log(ROCKS)
   alert('YOU LOSE');
 }
 
