@@ -21,11 +21,12 @@ function checkCollision(rock) {
   // implement me!
   // use the comments below to guide you!
   const top = positionToInteger(rock.style.top)
-
+  console.log(top)
   // rocks are 20px high
   // DODGER is 20px high
   // GAME_HEIGHT - 20 - 20 = 360px;
   if (top > 360) {
+
     const dodgerLeftEdge = positionToInteger(DODGER.style.left)
 
     // FIXME: The DODGER is 40 pixels wide -- how do we get the right edge?
@@ -36,11 +37,14 @@ function checkCollision(rock) {
     // FIXME: The rock is 20 pixel's wide -- how do we get the right edge?
     const rockRightEdge = rockLeftEdge + 20;
 
+        console.log(rockLeftEdge);
+        console.log(dodgerLeftEdge);
+
     if ((rockLeftEdge <= dodgerLeftEdge && rockRightEdge >= dodgerLeftEdge) ||
         (rockLeftEdge >= dodgerLeftEdge && rockRightEdge <= dodgerRightEdge) ||
         (rockLeftEdge <= dodgerRightEdge && rockRightEdge >= dodgerRightEdge))
         {
-          
+
       return true;
     } else {
       return false;
