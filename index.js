@@ -75,7 +75,7 @@ function createRock(x) {
            top += 2;
            rock.style.top = top + 'px';
            window.requestAnimationFrame(down);
-           checkCollision(rock)
+           console.log(checkCollision(rock));
           }
           down();
         }
