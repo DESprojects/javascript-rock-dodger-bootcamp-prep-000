@@ -71,13 +71,11 @@ function createRock(x) {
        endGame();
      }
      else if(top < 400) {
-         function down(){
            top += 2;
            rock.style.top = top + 'px';
-           window.requestAnimationFrame(down);
-           console.log(checkCollision(rock));
+           window.requestAnimationFrame(moveRock);
           }
-          down();
+          moveRock();
         }
       else if(top >= 400){
         rock.remove();
