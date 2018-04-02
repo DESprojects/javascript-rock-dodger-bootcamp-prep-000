@@ -86,12 +86,12 @@ function endGame() {
 function moveDodger(e) {
   //On LEFT_ARROW, animate moveDodgerLeft function
    if(e.which === LEFT_ARROW){
-     window.requestAnimationFrame(moveDodgerLeft);
+     moveDodgerLeft();
      e.preventDefault();
      e.stopPropagation();
    }   //On RIGHT_ARROW, animate moveDodgerRight function
    else if (e.which === RIGHT_ARROW) {
-     window.requestAnimationFrame(moveDodgerRight);
+     moveDodgerRight();
      e.preventDefault();
      e.stopPropagation();
    }
