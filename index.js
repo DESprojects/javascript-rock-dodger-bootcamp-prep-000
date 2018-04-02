@@ -72,9 +72,11 @@ function endGame() {
   clearInterval(gameInterval);
   START.style.display = "block";
   window.removeEventListener('keydown', moveDodger);
+  //Remove rocks from DOM
   ROCKS.forEach(function(rock){
     rock.remove();
   })
+  console.log(ROCKS);
   ROCKS.splice(0);
   console.log(ROCKS)
   alert('YOU LOSE');
@@ -96,7 +98,7 @@ function moveDodger(e) {
 function moveDodgerLeft() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
-   
+
    if(left > 0){
      DODGER.style.left = `${left - 8}px`
    }
@@ -105,7 +107,7 @@ function moveDodgerLeft() {
 function moveDodgerRight() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
-   
+
    if(left < 360){
    DODGER.style.left = `${left + 8}px`
    }
