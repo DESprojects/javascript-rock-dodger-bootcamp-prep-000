@@ -69,7 +69,7 @@ function createRock(x) {
   function moveRock() {
     if(checkCollision(rock)){
        endGame();
-     } else if(top < 400) {
+     } elseif(top < 400) {
          function down(){
            top += 2;
            rock.style.top = top + 'px';
@@ -78,7 +78,7 @@ function createRock(x) {
           }
           down();
         }
-      } else if(top === 400){
+      } elseif(top === 400){
         rock.remove();
       }
   }
