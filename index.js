@@ -79,11 +79,9 @@ function createRock(x) {
           }
           down();
         }
-      }
-      else if (top > 400){
+      } else if (top > 400) {
         rock.remove();
       }
-
   }
 
   // We should kick of the animation of the rock around here
