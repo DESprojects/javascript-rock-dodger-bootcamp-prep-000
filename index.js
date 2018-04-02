@@ -103,7 +103,7 @@ function moveDodgerLeft() {
 
    //If dodger's not at the edge, move the dodger left
    if(left > 0){
-     DODGER.style.left = `${left - 8}px`
+     DODGER.style.left = `${left - 4}px`
    }
    window.requestAnimationFrame(moveDodgerLeft);
 }
@@ -114,7 +114,7 @@ function moveDodgerRight() {
 
    //If dodger's not at the edge, move the dodger right
    if(left < 360){
-   DODGER.style.left = `${left + 8}px`
+   DODGER.style.left = `${left + 4}px`
    }
    window.requestAnimationFrame(moveDodgerRight);
 }
