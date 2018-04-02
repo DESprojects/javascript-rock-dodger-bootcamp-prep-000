@@ -9,6 +9,8 @@ const START = document.getElementById('start')
 
 var gameInterval = null
 
+
+//Check for collision
 function checkCollision(rock) {
 
   const top = positionToInteger(rock.style.top)
@@ -20,6 +22,7 @@ function checkCollision(rock) {
     const rockLeftEdge = positionToInteger(rock.style.left)
     const rockRightEdge = rockLeftEdge + 20;
 
+    //If rock position is the same as dodger, return true, else return false
     if ((rockLeftEdge <= dodgerLeftEdge && rockRightEdge >= dodgerLeftEdge) ||
         (rockLeftEdge >= dodgerLeftEdge && rockRightEdge <= dodgerRightEdge) ||
         (rockLeftEdge <= dodgerRightEdge && rockRightEdge >= dodgerRightEdge))
@@ -32,6 +35,7 @@ function checkCollision(rock) {
   }
 }
 
+// Create new rock at position x
 function createRock(x) {
   const rock = document.createElement('div')
   rock.className = 'rock'
@@ -39,22 +43,24 @@ function createRock(x) {
 
   var top = 0
 
+  //Add rock to DOM
   GAME.appendChild(rock);
 
+  //Move rock down the screen
   function moveRock() {
+    //Check for collision
     if(checkCollision(rock)){
        endGame();
-     }
+     }//If no collision, change the position;
      else if(top < 400) {
            top += 2;
            rock.style.top = top + 'px';
            window.requestAnimationFrame(moveRock);
-      }
+      }//Remove rock at bottom of screen
       else if(top >= 400){
         rock.remove();
       }
     }
-
   window.requestAnimationFrame(moveRock);
 
   ROCKS.push(rock)
@@ -77,7 +83,7 @@ function endGame() {
 function moveDodger(e) {
 
    if(e.which === LEFT_ARROW){
-     moveDodgerLeft();
+     window.requestAnimationFrame(moveDodgerLeft);
      e.preventDefault();
      e.stopPropagation();
    } else if (e.which === RIGHT_ARROW) {
@@ -91,11 +97,9 @@ function moveDodgerLeft() {
    var leftNumbers = DODGER.style.left.replace('px', '')
    var left = parseInt(leftNumbers, 10);
 
-   window.requestAnimationFrame(function(){
      if(left > 0){
      DODGER.style.left = `${left - 8}px`
      }
-   })
 }
 
 function moveDodgerRight() {
