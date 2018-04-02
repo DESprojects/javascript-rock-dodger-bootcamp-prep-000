@@ -66,9 +66,7 @@ function endGame() {
   clearInterval(gameInterval);
   START.style.display = "block";
   window.removeEventListener('keydown', moveDodger);
-  ROCKS.forEach(function(rock){
-    rock.remove();
-  });
+  ROCKS.splice(0);
   console.log(ROCKS)
   alert('YOU LOSE');
 }
@@ -115,7 +113,7 @@ function start() {
   window.addEventListener('keydown', moveDodger)
 
   START.style.display = 'none'
-  
+
   gameInterval = setInterval(function() {
     createRock(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
   }, 1000)
